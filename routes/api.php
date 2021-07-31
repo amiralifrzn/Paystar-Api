@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::put('/posts/{post}', [PostApiController::class, 'update']);
     Route::delete('/posts/{post}/', [PostApiController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/email/verification-notification', [AuthController::class, 'resendNotification'])->name('verification.send');
 });
 
 Route::post('/register', [AuthController::class, 'register']);
